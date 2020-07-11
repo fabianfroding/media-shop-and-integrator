@@ -1,0 +1,12 @@
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\bin\Debug\MediaShop.exe.config
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\bin\Debug\MediaShop.exe
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\bin\Debug\MediaShop.pdb
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.csprojAssemblyReference.cache
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.Properties.Resources.resources
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.csproj.GenerateResource.cache
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.exe
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.pdb
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.NewProductForm.resources
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.MainForm.resources
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.RefundForm.resources
+C:\Users\Fabian\Studier\DVGB07-C#.NET\labs\MediaShop\obj\Debug\MediaShop.StatsForm.resources

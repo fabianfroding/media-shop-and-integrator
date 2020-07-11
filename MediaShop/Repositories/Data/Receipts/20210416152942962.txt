@@ -1,0 +1,5 @@
+14|Hail Caesar|149|48|DVD
+5|Hollow Knight|449|46|GAME
+10|Lenovo L27i-28|2290|49|OTHER
+3|Mad Max: Fury Road|99|48|DVD
+9|Octopath Traveler OST|199|48|CD
