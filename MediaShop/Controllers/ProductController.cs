@@ -49,5 +49,10 @@ namespace MediaShop.Controllers
             productRepository.ImportProducts(path);
             return true;
         }
+
+        public void TestSQLConnection()
+        {
+            productRepository.TestSQLConnection();
+        }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using MediaShop.Models;
+using System.Data.SqlClient;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using System.Diagnostics;
 
 namespace MediaShop.Repositories
 {
@@ -10,9 +12,32 @@ namespace MediaShop.Repositories
     {
         private static string _dbPath = @"..\..\Repositories\Data\dbProducts.txt";
 
+        SqlConnection dbConnection = new SqlConnection(
+                                        "user id=FABIANLAPTOP\\Fabian2;" +
+                                       "password=password;" +
+                                        "server=localhost\\SQLEXPRESS2;" +
+                                       "Trusted_Connection=yes;" +
+                                       "database=MediaShop; " +
+                                       "connection timeout=30"
+        );
+
         public ProductRepository()
         {
             Product.idCounter = FindMaxId();
+        }
+
+        public void TestSQLConnection()
+        {
+            try
+            {
+                dbConnection.Open();
+                Debug.WriteLine("Connection successful.");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Connection failed.");
+                Console.WriteLine(e.ToString());
+            }
         }
 
         // Hämtar en produkt från textfilen baserat på produktens id.
