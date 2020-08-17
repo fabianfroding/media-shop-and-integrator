@@ -17,3 +17,5 @@
 13|Dune|199|46|OTHER
 61|A Space Odyssey|99|1|OTHER
 62|Deep Work|89|40|BOOK
+63|2010: The Year We Made Contact|99|1|DVD
+64|Contact|79|1|DVD

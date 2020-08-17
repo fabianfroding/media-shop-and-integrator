@@ -12,6 +12,8 @@ namespace MediaShop.Repositories
     {
         private static string _dbPath = @"..\..\Repositories\Data\dbProducts.txt";
 
+        private ProductContext _context;
+
         SqlConnection dbConnection = new SqlConnection(
                                         "user id=FABIANLAPTOP\\Fabian2;" +
                                        "password=password;" +
@@ -24,6 +26,7 @@ namespace MediaShop.Repositories
         public ProductRepository()
         {
             Product.idCounter = FindMaxId();
+            _context = new ProductContext();
         }
 
         public void TestSQLConnection()
@@ -87,6 +90,18 @@ namespace MediaShop.Repositories
             sw.WriteLine(data);
             sw.Close();
 
+            if (AddToDB(product))
+            {
+                Debug.WriteLine(product.name + " added to DB.");
+            }
+
+            return true;
+        }
+
+        private bool AddToDB(Product product)
+        {
+            _context.Add(product);
+            _context.SaveChanges();
             return true;
         }
 
