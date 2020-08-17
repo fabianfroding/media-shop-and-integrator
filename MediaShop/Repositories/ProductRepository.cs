@@ -14,6 +14,8 @@ namespace MediaShop.Repositories
 
         private ProductContext _context;
 
+        // TODO: Move this and test-method to a UnitTest project.
+        /**
         SqlConnection dbConnection = new SqlConnection(
                                         "user id=FABIANLAPTOP\\Fabian2;" +
                                        "password=password;" +
@@ -22,6 +24,7 @@ namespace MediaShop.Repositories
                                        "database=MediaShop; " +
                                        "connection timeout=30"
         );
+        **/
 
         public ProductRepository()
         {
@@ -29,6 +32,7 @@ namespace MediaShop.Repositories
             _context = new ProductContext();
         }
 
+        /**
         public void TestSQLConnection()
         {
             try
@@ -42,6 +46,7 @@ namespace MediaShop.Repositories
                 Console.WriteLine(e.ToString());
             }
         }
+        **/
 
         // Hämtar en produkt från textfilen baserat på produktens id.
         public Product GetById(int id)

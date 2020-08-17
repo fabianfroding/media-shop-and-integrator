@@ -1,15 +1,20 @@
-﻿namespace MediaShop.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MediaShop.Models
 {
     public class Product
     {
+        [NotMapped]
         public static int idCounter { get; set; }
         public int id { get; set; }
         public string name { get; set; }
         public double price { get; set; }
         public int stock { get; set; }
         public ProductType productType { get; set; }
+
         // unitsSold lagras inte i databasen, utan beräknas istället dynamiskt i StatsForm klassen baserat
         // på produkter från alla kvitton.
+        [NotMapped]
         public int unitsSold { get; set; }
 
         public Product()

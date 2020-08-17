@@ -25,13 +25,6 @@ namespace MediaShop
             cartProducts = new List<Product>();
             ListProducts(productController.GetAll());
             ListProductTypesInComboBox(ComboBoxSearchProductTypes);
-
-            TestSQLConnection();
-        }
-
-        private void TestSQLConnection()
-        {
-            productController.TestSQLConnection();
         }
 
         // Filtrerar listan med produkter baserat på sök-kriterier som användaren angett.

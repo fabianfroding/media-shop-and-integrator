@@ -11,5 +11,11 @@ namespace MediaShop.Models
         {
             optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["ProductContext"].ConnectionString);
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>()
+                .ToTable("Product");
+        }
     }
 }
