@@ -16,7 +16,7 @@ namespace MediaShop.Controllers
 
         public List<Product> GetAll()
         {
-            return productRepository.GetAll();
+            return productRepository.GetAllFromDB(); //.GetAll();
         }
 
         public Product GetById(int id)

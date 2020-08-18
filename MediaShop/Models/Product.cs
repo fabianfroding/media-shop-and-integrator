@@ -6,10 +6,15 @@ namespace MediaShop.Models
     {
         [NotMapped]
         public static int idCounter { get; set; }
+        [Column]
         public int id { get; set; }
+        [Column]
         public string name { get; set; }
+        [Column]
         public double price { get; set; }
+        [Column]
         public int stock { get; set; }
+        [Column(TypeName = "nvarchar(150)")]
         public ProductType productType { get; set; }
 
         // unitsSold lagras inte i databasen, utan beräknas istället dynamiskt i StatsForm klassen baserat

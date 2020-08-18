@@ -86,6 +86,11 @@ namespace MediaShop.Repositories
             return _products;
         }
 
+        public List<Product> GetAllFromDB()
+        {
+            return _context.Products.ToList<Product>();
+        }
+
         // Lägger till en produkt till textfilen.
         public bool Add(Product product)
         {
