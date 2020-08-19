@@ -26,12 +26,12 @@ namespace MediaShop.Controllers
 
         public bool Add(Product product)
         {
-            return productRepository.Add(product);
+            return productRepository.Add(product) && productRepository.AddToDB(product);
         }
 
         public bool Remove(Product product)
         {
-            return productRepository.Remove(product);
+            return productRepository.Remove(product) && productRepository.RemoveFromDB(product);
         }
 
         public bool Update(Product product)

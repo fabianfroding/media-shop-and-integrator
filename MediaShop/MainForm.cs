@@ -12,7 +12,7 @@ namespace MediaShop
         private static readonly string exportPath = @"..\..\bin\Debug\Export\products.txt";
         private static readonly string importPath = @"..\..\bin\Debug\Import\";
 
-        private ProductController productController;
+        //private ProductController productController;
         private ReceiptController receiptController;
         // cartProducts är en temporär lista som innehåller de produkter som läggs i cart i kassavyn.
         private List<Product> cartProducts;
@@ -20,9 +20,10 @@ namespace MediaShop
         public MainForm()
         {
             InitializeComponent();
-            productController = new ProductController();
+            //productController = new ProductController();
             receiptController = new ReceiptController();
             cartProducts = new List<Product>();
+            ProductController productController = new ProductController();
             ListProducts(productController.GetAll());
             ListProductTypesInComboBox(ComboBoxSearchProductTypes);
         }
@@ -50,6 +51,7 @@ namespace MediaShop
             {
                 foreach (Product product in cartProducts)
                 {
+                    ProductController productController = new ProductController();
                     Product dbProduct = productController.GetById(product.id);
                     dbProduct.stock++;
                     productController.Update(dbProduct);
@@ -60,6 +62,7 @@ namespace MediaShop
         private void BTNTop10_Click(object sender, EventArgs e)
         {
             // För att se hur detta fungerar, gå till StatsForm-klassens dokumentation.
+            ProductController productController = new ProductController();
             StatsForm statsForm = new StatsForm();
             statsForm.DrawTop10Graph(productController.GetAll(), receiptController.GetAll());
             statsForm.Show();
@@ -86,6 +89,7 @@ namespace MediaShop
 
         private void BTNExportProducts_Click(object sender, EventArgs e)
         {
+            ProductController productController = new ProductController();
             if (productController.ExportProducts(exportPath))
             {
                 MessageBox.Show("Products exported to " + exportPath);
@@ -98,6 +102,7 @@ namespace MediaShop
 
         private void BTNImportProducts_Click(object sender, EventArgs e)
         {
+            ProductController productController = new ProductController();
             productController.ImportProducts(importPath);
             ListProducts(productController.GetAll());
         }
@@ -110,6 +115,7 @@ namespace MediaShop
         {
             try
             {
+                ProductController productController = new ProductController();
                 ListViewItem selectedItem = ListViewProducts.SelectedItems[0];
                 ListViewItem cartItem = (ListViewItem)selectedItem.Clone();
                 int.TryParse(cartItem.SubItems[1].Text, out int id);
@@ -191,6 +197,7 @@ namespace MediaShop
         // Öppnar NewProductForm, se NewProductForm för mer detlajer.
         private void BTNNewProduct_Click(object sender, EventArgs e)
         {
+            ProductController productController = new ProductController();
             new NewProductForm().ShowDialog();
             // När NewProductForm stängs uppdaterar vi listan så att vi ser den nya produkten.
             ListProducts(productController.GetAll());
@@ -199,6 +206,7 @@ namespace MediaShop
         // Tar bort en produkt. Kräver att användaren valt en produkt från listan först.
         private void BTNRemoveProduct_Click(object sender, EventArgs e)
         {
+            ProductController productController = new ProductController();
             Product product = GetSelectedProductFromListView(ListViewProducts);
             // Kolla så att användare valt en produkt från listan.
             if (product != null)
@@ -233,6 +241,7 @@ namespace MediaShop
         // "Leverans från grossit"
         private void BTNAddStock_Click(object sender, EventArgs e)
         {
+            ProductController productController = new ProductController();
             Product product = GetSelectedProductFromListView(ListViewProducts);
             // Kolla så att en produkt valts.
             if (product != null)
@@ -320,6 +329,7 @@ namespace MediaShop
                 if (selectedItem != null)
                 {
                     int.TryParse(selectedItem.SubItems[1].Text, out int id);
+                    ProductController productController = new ProductController();
                     return productController.GetById(id);
                 }
             }
@@ -334,6 +344,7 @@ namespace MediaShop
         // Kontroll så att det inte var något problem i controller eller repository lagret utförs också.
         private void RemoveProduct(Product product)
         {
+            ProductController productController = new ProductController();
             if (productController.Remove(product))
             {
                 MessageBox.Show("Product succesfully removed.");
@@ -349,6 +360,7 @@ namespace MediaShop
         // lagerstatus uppdaterats.
         private void RefundFormClosed(object sender, FormClosedEventArgs e)
         {
+            ProductController productController = new ProductController();
             ListProducts(productController.GetAll());
         }
 
@@ -356,6 +368,7 @@ namespace MediaShop
         // Och återger en lista med produkter som matchar dessa världen.
         private List<Product> FindProducts(string[] values)
         {
+            ProductController productController = new ProductController();
             List<Product> products = productController.GetAll();
             List<Product> productsFound = new List<Product>();
 

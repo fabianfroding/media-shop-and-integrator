@@ -100,15 +100,10 @@ namespace MediaShop.Repositories
             sw.WriteLine(data);
             sw.Close();
 
-            if (AddToDB(product))
-            {
-                Debug.WriteLine(product.name + " added to DB.");
-            }
-
             return true;
         }
 
-        private bool AddToDB(Product product)
+        public bool AddToDB(Product product)
         {
             _context.Add(product);
             _context.SaveChanges();
@@ -144,6 +139,13 @@ namespace MediaShop.Repositories
             }
             sw.Close();
 
+            return true;
+        }
+
+        public bool RemoveFromDB(Product product)
+        {
+            _context.Products.Remove(product);
+            _context.SaveChanges();
             return true;
         }
 

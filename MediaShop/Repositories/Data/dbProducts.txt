@@ -1,7 +1,6 @@
 6|Sicario OST|179|50|OTHER
 7|The Matrix|99|50|OTHER
 8|The Organized Mind|89|49|OTHER
-1|The Legend of Zelda: Breath of the Wild|599|49|OTHER
 15|What Every Body is Saying|129|48|OTHER
 2|Wacom One 13"|4390|48|OTHER
 5|Hollow Knight|449|46|OTHER
@@ -20,4 +19,11 @@
 66|Deep Work|89|1|BOOK
 67|Atomic Habits|49|1|BOOK
 68|Elektra|59|1|DVD
-69|Siberian Husky|55|6|BOOK
+69|Lotus|1|1|CD
+70|Enzo|3|1|OTHER
+71|wer|2|1|DVD
+0|Horos|6767|1|DVD
+0|Siberian Husky|99|1|BOOK
+0|asd|3|1|CD
+0|qwe|1|1|CD
+0|rty|34|1|DVD

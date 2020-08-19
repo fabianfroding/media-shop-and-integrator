@@ -16,6 +16,11 @@ namespace MediaShop.Models
         {
             modelBuilder.Entity<Product>()
                 .ToTable("Product");
+            modelBuilder.Entity<Product>(b =>
+            {
+                b.HasKey(e => e.id);
+                b.Property(e => e.id).ValueGeneratedOnAdd();
+            });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MediaShop.Models
 {
@@ -6,7 +7,7 @@ namespace MediaShop.Models
     {
         [NotMapped]
         public static int idCounter { get; set; }
-        [Column]
+        [Key]
         public int id { get; set; }
         [Column]
         public string name { get; set; }
@@ -26,7 +27,7 @@ namespace MediaShop.Models
         {
             // Här skapas ett unikt id för varje produkt med hjälp av en static int (idCounter).
             idCounter++;
-            this.id = idCounter;
+            //this.id = idCounter;
             // Varje ny produkt måste ha minst 1 stock (lagerstatus).
             this.stock = 1;
         }
