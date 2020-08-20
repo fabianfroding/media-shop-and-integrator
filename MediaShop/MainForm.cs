@@ -20,7 +20,6 @@ namespace MediaShop
         public MainForm()
         {
             InitializeComponent();
-            //productController = new ProductController();
             receiptController = new ReceiptController();
             cartProducts = new List<Product>();
             ProductController productController = new ProductController();
@@ -206,7 +205,6 @@ namespace MediaShop
         // Tar bort en produkt. Kräver att användaren valt en produkt från listan först.
         private void BTNRemoveProduct_Click(object sender, EventArgs e)
         {
-            ProductController productController = new ProductController();
             Product product = GetSelectedProductFromListView(ListViewProducts);
             // Kolla så att användare valt en produkt från listan.
             if (product != null)
@@ -329,6 +327,7 @@ namespace MediaShop
                 if (selectedItem != null)
                 {
                     int.TryParse(selectedItem.SubItems[1].Text, out int id);
+                    System.Diagnostics.Debug.WriteLine("Id: " + id);
                     ProductController productController = new ProductController();
                     return productController.GetById(id);
                 }

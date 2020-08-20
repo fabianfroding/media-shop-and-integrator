@@ -21,7 +21,7 @@ namespace MediaShop.Controllers
 
         public Product GetById(int id)
         {
-            return productRepository.GetById(id);
+            return productRepository.GetByIdFromDB(id); //GetById(id);
         }
 
         public bool Add(Product product)

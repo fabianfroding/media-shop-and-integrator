@@ -2,7 +2,6 @@
 7|The Matrix|99|50|OTHER
 8|The Organized Mind|89|49|OTHER
 15|What Every Body is Saying|129|48|OTHER
-2|Wacom One 13"|4390|48|OTHER
 5|Hollow Knight|449|46|OTHER
 10|Lenovo L27i-28|2290|49|OTHER
 9|Octopath Traveler OST|199|48|OTHER
@@ -27,3 +26,5 @@
 0|asd|3|1|CD
 0|qwe|1|1|CD
 0|rty|34|1|DVD
+0|Wer|12|1|CD
+0|Asd|34|1|DVD

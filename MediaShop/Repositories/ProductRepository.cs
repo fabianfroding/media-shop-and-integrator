@@ -69,6 +69,11 @@ namespace MediaShop.Repositories
             return null;
         }
 
+        public Product GetByIdFromDB(int id)
+        {
+            return _context.Products.Single(p => p.id == id);
+        }
+
         // Hämtar alla produkter från textfilen.
         public List<Product> GetAll()
         {
