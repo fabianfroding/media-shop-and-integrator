@@ -165,6 +165,24 @@ namespace MediaShop.Repositories
             return false;
         }
 
+        public bool UpdateInDB(Product product)
+        {
+            Product oldProduct = _context.Products.Single(p => p.id == product.id);
+
+            if (oldProduct != null)
+            {
+                oldProduct.name = product.name;
+                oldProduct.price = product.price;
+                oldProduct.stock = product.stock;
+                oldProduct.productType = product.productType;
+
+                _context.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
         public bool ExportProducts(string path)
         {
             List<string> lines = File.ReadAllLines(_dbPath).ToList();

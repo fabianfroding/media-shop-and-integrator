@@ -36,7 +36,7 @@ namespace MediaShop.Controllers
 
         public bool Update(Product product)
         {
-            return productRepository.Update(product);
+            return productRepository.UpdateInDB(product); //Update(product);
         }
 
         public bool ExportProducts(string path)
