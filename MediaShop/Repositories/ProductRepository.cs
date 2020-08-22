@@ -196,6 +196,20 @@ namespace MediaShop.Repositories
             return true;
         }
 
+        public bool ExportProductsFromDB(string exportPath)
+        {
+            File.WriteAllText(exportPath, String.Empty);
+            StreamWriter sw = File.AppendText(exportPath);
+
+            foreach (Product p in GetAllFromDB())
+            {
+                sw.WriteLine(p.id + "|" + p.name + "|" + p.price + "|" + p.stock + "|" + p.productType);
+            }
+
+            sw.Close();
+            return true;
+        }
+
         public bool ImportProducts(string path)
         {
             DirectoryInfo di = new DirectoryInfo(path);

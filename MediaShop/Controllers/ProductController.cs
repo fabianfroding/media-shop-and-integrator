@@ -41,7 +41,7 @@ namespace MediaShop.Controllers
 
         public bool ExportProducts(string path)
         {
-            return productRepository.ExportProducts(path);
+            return productRepository.ExportProductsFromDB(path);
         }
 
         public bool ImportProducts(string path)
