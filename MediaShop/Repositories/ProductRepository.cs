@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace MediaShop.Repositories
 {
@@ -225,13 +226,33 @@ namespace MediaShop.Repositories
             return true;
         }
 
+        public bool ImportProductsToDB(string filePath)
+        {
+            ClearDB();
+
+            DirectoryInfo di = new DirectoryInfo(filePath);
+            FileInfo fi = di.GetFiles("*.txt")[0];
+            List<string> lines = File.ReadAllLines(fi.FullName).ToList();
+
+            foreach (string line in lines)
+            {
+                Product product = GetParsedProduct(line.Split('|'));
+                Debug.WriteLine(product.ToString());
+                _context.Add(product);
+            }
+            
+            _context.SaveChanges();
+            return true;
+        }
+
         // Funktion för att konvertera data från textfilen till en Product-objekt.
         // En Products fält separeras med | symbolen.
         private Product GetParsedProduct(string[] entries)
         {
             Product product = new Product();
-            int.TryParse(entries[0], out int productId);
-            product.id = productId;
+            // Commented out so that id is auto-generated to db.
+            //int.TryParse(entries[0], out int productId);
+            //product.id = productId;
             product.name = entries[1];
             double.TryParse(entries[2], out double productPrice);
             product.price = productPrice;
@@ -264,6 +285,11 @@ namespace MediaShop.Repositories
             }
 
             return maxId;
+        }
+
+        private void ClearDB()
+        {
+            _context.Database.ExecuteSqlCommand("DELETE FROM Product");
         }
     }
 }
