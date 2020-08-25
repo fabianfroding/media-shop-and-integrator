@@ -1,5 +1,4 @@
 ﻿using MediaShop.Models;
-using System.Data.SqlClient;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,39 +14,11 @@ namespace MediaShop.Repositories
 
         private ProductContext _context;
 
-        // TODO: Move this and test-method to a UnitTest project.
-        /**
-        SqlConnection dbConnection = new SqlConnection(
-                                        "user id=FABIANLAPTOP\\Fabian2;" +
-                                       "password=password;" +
-                                        "server=localhost\\SQLEXPRESS2;" +
-                                       "Trusted_Connection=yes;" +
-                                       "database=MediaShop; " +
-                                       "connection timeout=30"
-        );
-        **/
-
         public ProductRepository()
         {
             Product.idCounter = FindMaxId();
             _context = new ProductContext();
         }
-
-        /**
-        public void TestSQLConnection()
-        {
-            try
-            {
-                dbConnection.Open();
-                Debug.WriteLine("Connection successful.");
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine("Connection failed.");
-                Console.WriteLine(e.ToString());
-            }
-        }
-        **/
 
         // Hämtar en produkt från textfilen baserat på produktens id.
         public Product GetById(int id)
