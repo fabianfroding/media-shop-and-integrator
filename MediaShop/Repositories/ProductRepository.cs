@@ -211,8 +211,10 @@ namespace MediaShop.Repositories
                 Debug.WriteLine(product.ToString());
                 _context.Add(product);
             }
-            
+
+            _context.Database.ExecuteSqlCommand(@"SET IDENTITY_INSERT dbo.Product ON");
             _context.SaveChanges();
+            _context.Database.ExecuteSqlCommand(@"SET IDENTITY_INSERT dbo.Product OFF");
             return true;
         }
 
